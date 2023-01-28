@@ -8,10 +8,10 @@ public class Message {
     private Date timestamp;
 
     public Message(){}
-    public Message(int id,String content, Date date){
+    public Message(int id,String content){
         this.id = id;
         this.content = content;
-        this.timestamp = date;
+        this.timestamp = new Date();
     }
 
     public int getId(){
