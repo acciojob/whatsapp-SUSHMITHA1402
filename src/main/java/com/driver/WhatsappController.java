@@ -23,11 +23,10 @@ public class WhatsappController {
     WhatsappService whatsappService = new WhatsappService();
 
     @PostMapping("/add-user")
-    public String createUser(String name, String mobile) throws Exception {
+    public String createUser(String name,String mobile) throws Exception {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
-
-        return whatsappService.createUser(name, mobile);
+            return whatsappService.createUser(name, mobile);
     }
 
     @PostMapping("/add-group")
@@ -58,7 +57,12 @@ public class WhatsappController {
         //Throw "You are not allowed to send message" if the sender is not a member of the group
         //If the message is sent successfully, return the final number of messages in that group.
 
-        return whatsappService.sendMessage(message, sender, group);
+        try {
+            return whatsappService.sendMessage(message, sender, group);
+        }
+        catch (Exception e){
+            throw new Exception();
+        }
     }
     @PutMapping("/change-admin")
     public String changeAdmin(User approver, User user, Group group) throws Exception{
@@ -70,7 +74,7 @@ public class WhatsappController {
         return whatsappService.changeAdmin(approver, user, group);
     }
 
-    @DeleteMapping("/remove-user")
+    /* @DeleteMapping("/remove-user")
     public int removeUser(User user) throws Exception{
         //This is a bonus problem and does not contains any marks
         //A user belongs to exactly one group
@@ -89,5 +93,7 @@ public class WhatsappController {
         // If the number of messages between given time is less than K, throw "K is greater than the number of messages" exception
 
         return whatsappService.findMessage(start, end, K);
-    }
+    } /*
+
+     */
 }
