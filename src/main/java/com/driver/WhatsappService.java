@@ -22,10 +22,10 @@ public class WhatsappService {
     }
 
     public int sendMessage(Message message, User sender, Group group) throws Exception{
-        return sendMessage(message,sender,group);
+        return whatsappRepository.sendMessage(message,sender,group);
     }
     public String changeAdmin(User approver, User user, Group group) throws Exception{
-        return changeAdmin(approver,user,group);
+        return whatsappRepository.changeAdmin(approver,user,group);
     }
 
 }
