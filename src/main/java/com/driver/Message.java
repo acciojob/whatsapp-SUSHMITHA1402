@@ -3,27 +3,38 @@ package com.driver;
 import java.util.Date;
 
 public class Message {
-    private static int id=0;
+    private int id;
     private String content;
     private Date timestamp;
 
     public Message(){}
-    public Message(String content){
-        id = id+1;
+    public Message(int id,String content, Date date){
+        this.id = id;
         this.content = content;
-        this.timestamp = new Date();
+        this.timestamp = date;
     }
 
     public int getId(){
         return id;
+    }
+    public void setId(int id){
+        this.id = id;
     }
 
     public Date getTimestamp(){
         return timestamp;
     }
 
+    public void setTimestamp(Date timestamp){
+        this.timestamp = timestamp;
+    }
+
     public String getContent(){
         return content;
+    }
+
+    public void setContent(String content){
+        this.content = content;
     }
 
 

@@ -62,8 +62,9 @@ public class WhatsappRepository {
     public int createMessage(String content){
         // The 'i^th' created message has message id 'i'.
         // Return the message id.
-        Message newMessage = new Message(content);
-        return newMessage.getId();
+        messageId++;
+        Message newMessage = new Message(messageId,content,new Date());
+        return messageId;
     }
 
     public int sendMessage(Message message, User sender, Group group) throws Exception{
